@@ -1,12 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
-import Title from '../../components/Title';
+import {Title} from '../../components/Text';
+import {Container} from '../../components/Container';
 
 const Home: React.FC = ({}) => {
   return (
-    <View>
+    <Container>
       <Title>FreeCalc</Title>
-    </View>
+    </Container>
   );
 };
 

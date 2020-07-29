@@ -1,21 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
-import {
-  ImageBackground,
-  Dimensions,
-  StatusBar,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import styled from 'styled-components/native';
+import {Dimensions, StatusBar, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Image = styled(ImageBackground)`
+const Image = styled.ImageBackground`
   flex: 1;
   width: ${Dimensions.get('screen').width}px;
   height: ${Dimensions.get('screen').height}px;
 `;
 
-const AreaView = styled(SafeAreaView)`
+const AreaView = styled.SafeAreaView`
   height: ${Dimensions.get('screen').height}px;
   padding-top: ${StatusBar.currentHeight}px;
 `;
