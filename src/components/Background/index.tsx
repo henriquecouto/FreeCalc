@@ -6,12 +6,12 @@ import {transparentize} from 'polished';
 
 const Image = styled.ImageBackground`
   flex: 1;
-  width: ${Dimensions.get('screen').width}px;
-  height: ${Dimensions.get('screen').height}px;
+  width: ${Dimensions.get('window').width}px;
+  height: ${Dimensions.get('window').height}px;
 `;
 
 const AreaView = styled.SafeAreaView`
-  height: ${Dimensions.get('screen').height}px;
+  height: ${Dimensions.get('window').height}px;
   padding-top: ${StatusBar.currentHeight}px;
 `;
 
@@ -31,9 +31,9 @@ const Background: React.FC = ({children}) => {
           translucent
           animated
         />
-        <AreaView>
-          <ScrollView>{children}</ScrollView>
-        </AreaView>
+        <ScrollView>
+          <AreaView>{children}</AreaView>
+        </ScrollView>
       </LinearGradient>
     </Image>
   );
