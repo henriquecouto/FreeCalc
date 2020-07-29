@@ -15,7 +15,9 @@ const Home: React.FC = () => {
         </BodyText>
       </Container>
       <Card>
-        <Button>Quero calcular agora!</Button>
+        <Button onPress={() => console.log('hehe')}>
+          Quero calcular agora!
+        </Button>
       </Card>
     </>
   );

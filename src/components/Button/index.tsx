@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {TouchableOpacityProps} from 'react-native';
 import {BodyText} from '../Text';
 
 const Touchable = styled.TouchableOpacity`
@@ -10,9 +11,11 @@ const Touchable = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const Button: React.FC = ({children}) => {
+interface Props extends TouchableOpacityProps {}
+
+const Button: React.ElementType<Props> = ({children, ...props}) => {
   return (
-    <Touchable>
+    <Touchable activeOpacity={0.8} {...props}>
       <BodyText>{children}</BodyText>
     </Touchable>
   );
