@@ -1,11 +1,11 @@
 import React from 'react';
-import {Title} from '../../components/Text';
+import {TitleText} from '../../components/Text';
 import {Container} from '../../components/Container';
 
-const Home: React.FC = ({}) => {
+const Home: React.FC = () => {
   return (
     <Container>
-      <Title>FreeCalc</Title>
+      <TitleText>FreeCalc</TitleText>
     </Container>
   );
 };

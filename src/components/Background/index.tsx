@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled, {useTheme} from 'styled-components/native';
 import {Dimensions, StatusBar, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -15,12 +15,16 @@ const AreaView = styled.SafeAreaView`
 `;
 
 const Background: React.FC = ({children}) => {
+  const theme = useTheme();
+
   return (
     <Image source={require('../../../assets/woman.jpg')}>
-      <LinearGradient colors={['#3355FF', '#7C4FFF']} style={{opacity: 0.8}}>
+      <LinearGradient
+        colors={[theme.palette.primary, theme.palette.secondary]}
+        style={{opacity: 0.8}}>
         <StatusBar
           barStyle="light-content"
-          backgroundColor="#3355ff00"
+          backgroundColor="#0000"
           translucent
           animated
         />
