@@ -2,6 +2,7 @@ import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import {Dimensions, StatusBar, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {transparentize} from 'polished';
 
 const Image = styled.ImageBackground`
   flex: 1;
@@ -20,8 +21,10 @@ const Background: React.FC = ({children}) => {
   return (
     <Image source={require('../../../assets/woman.jpg')}>
       <LinearGradient
-        colors={[theme.palette.primary, theme.palette.secondary]}
-        style={{opacity: 0.8}}>
+        colors={[
+          transparentize(0.2, theme.palette.primary),
+          transparentize(0.2, theme.palette.secondary),
+        ]}>
         <StatusBar
           barStyle="light-content"
           backgroundColor="#0000"
