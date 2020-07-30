@@ -1,8 +1,12 @@
 import styled from 'styled-components/native';
 
-export const TitleText = styled.Text`
+type TitleTextProps = {
+  small?: boolean;
+};
+
+export const TitleText = styled.Text<TitleTextProps>`
   font-family: 'BalooTammudu2-Bold';
-  font-size: 64px;
+  font-size: ${(props) => (props.small ? '42px' : '64px')};
   color: ${(props) => props.theme.palette.white};
 `;
 
