@@ -10,7 +10,7 @@ export const Card = styled.View<CardProps>`
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 25px;
+  height: 100%;
 `;
