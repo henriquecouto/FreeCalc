@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {StyleSheet, Animated, Dimensions} from 'react-native';
+import {StyleSheet, Animated, Dimensions, Text} from 'react-native';
 import {TitleText, BodyText} from '../../components/Text';
 import {Container} from '../../components/Container';
 import {Card} from '../../components/Card';
 import Button from '../../components/Button';
+import Options from '../../components/Options';
 
 const {height} = Dimensions.get('window');
 
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
   const [opened, setOpened] = useState(false);
   const [cardHeight] = useState(new Animated.Value(height * 0.84));
   const [titleSize] = useState(new Animated.Value(1));
+  const [optionsScale] = useState(new Animated.Value(0));
 
   const open = () => {
     Animated.parallel([
@@ -23,6 +25,11 @@ const Home: React.FC = () => {
       Animated.spring(titleSize, {
         toValue: 0.7,
         useNativeDriver: true,
+      }),
+      Animated.spring(optionsScale, {
+        toValue: 1,
+        useNativeDriver: true,
+        delay: 700,
       }),
     ]).start();
 
@@ -43,7 +50,15 @@ const Home: React.FC = () => {
       <Animated.View
         style={[styles.cardView, {transform: [{translateY: cardHeight}]}]}>
         <Card>
-          {!opened && <Button onPress={open}>Quero calcular agora!</Button>}
+          {opened ? (
+            <Animated.View style={{transform: [{scale: optionsScale}]}}>
+              <Options />
+            </Animated.View>
+          ) : (
+            <Animated.View>
+              <Button onPress={open}>Quero calcular agora!</Button>
+            </Animated.View>
+          )}
         </Card>
       </Animated.View>
     </>
