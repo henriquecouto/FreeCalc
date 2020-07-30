@@ -15,7 +15,8 @@ const Home: React.FC = () => {
     Animated.spring(cardHeight, {
       toValue: height * 0.2,
       useNativeDriver: true,
-      friction: 5,
+      friction: 4,
+      tension: 6,
     }).start();
 
     setOpened(true);
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {justifyContent: 'space-between'},
+  container: {justifyContent: 'space-between', marginBottom: height * 0.2},
   bodyText: {textAlign: 'center'},
   cardView: {
     height: height,
