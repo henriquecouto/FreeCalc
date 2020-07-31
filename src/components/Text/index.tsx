@@ -10,6 +10,16 @@ export const TitleText = styled.Text<TitleTextProps>`
   color: ${(props) => props.theme.palette.white};
 `;
 
+type SubTitleTextProps = {
+  color?: string;
+};
+
+export const SubTitleText = styled.Text<SubTitleTextProps>`
+  font-family: 'Roboto-Medium';
+  font-size: 30px;
+  color: ${(props) => props.color || props.theme.palette.white};
+`;
+
 type BodyTextProps = {
   color?: string;
 };

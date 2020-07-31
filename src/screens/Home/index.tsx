@@ -12,7 +12,6 @@ const Home: React.FC = () => {
   const [opened, setOpened] = useState(false);
   const [cardHeight] = useState(new Animated.Value(height * 0.84));
   const [titleSize] = useState(new Animated.Value(1));
-  const [optionsScale] = useState(new Animated.Value(0));
 
   const open = () => {
     Animated.parallel([
@@ -25,11 +24,6 @@ const Home: React.FC = () => {
       Animated.spring(titleSize, {
         toValue: 0.7,
         useNativeDriver: true,
-      }),
-      Animated.spring(optionsScale, {
-        toValue: 1,
-        useNativeDriver: true,
-        delay: 700,
       }),
     ]).start();
 
@@ -51,9 +45,7 @@ const Home: React.FC = () => {
         style={[styles.cardView, {transform: [{translateY: cardHeight}]}]}>
         <Card>
           {opened ? (
-            <Animated.View style={{transform: [{scale: optionsScale}]}}>
-              <Options />
-            </Animated.View>
+            <Options />
           ) : (
             <Animated.View>
               <Button onPress={open}>Quero calcular agora!</Button>
