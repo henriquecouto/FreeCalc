@@ -79,8 +79,10 @@ const Hour: React.FC = () => {
 
   return (
     <Card style={styles.root}>
-      <Questions step={step} />
-      {step < 4 && <Button onPress={nextStep}>Avançar</Button>}
+      <View style={styles.content}>
+        <Questions step={step} />
+        {step < 4 && <Button onPress={nextStep}>Avançar</Button>}
+      </View>
       <View>
         <BodyText color={theme.palette.primary}>Publicidade</BodyText>
       </View>
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
     paddingBottom: height * 0.2,
     justifyContent: 'space-between',
   },
+  content: {justifyContent: 'space-between', height: '90%'},
 });
 
 export default Hour;

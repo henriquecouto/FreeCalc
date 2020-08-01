@@ -1123,6 +1123,11 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
+"@react-native-community/clipboard@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/clipboard/-/clipboard-1.2.3.tgz#1590f6849d9c8a3bc14bbd1aa0f1f3945e4e60ca"
+  integrity sha512-X9dfG/JiLI5pNyAwg3VMd7O3l/PVbYoAy8m12fetLWkBFzgTVEUIwsP0vysZ/29lnlLVM+qJUywcJmat046fvw==
+
 "@react-native-community/eslint-config@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-config/-/eslint-config-2.0.0.tgz#35dcc529a274803fc4e0a6b3d6c274551fb91774"
@@ -1200,13 +1205,6 @@
   integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
-
-"@types/@react-navigation/stack":
-  version "2.1.1"
-  resolved "https://codeload.github.com/react-navigation/stack/tar.gz/3389391b24ff58957c33b41c102e5bf9afafa991"
-  dependencies:
-    color "^3.1.2"
-    react-native-iphone-x-helper "^1.2.1"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
