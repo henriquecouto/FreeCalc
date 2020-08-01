@@ -81,7 +81,11 @@ const Hour: React.FC = () => {
     <Card style={styles.root}>
       <View style={styles.content}>
         <Questions step={step} />
-        {step < 4 && <Button onPress={nextStep}>Avançar</Button>}
+        {step < 4 && (
+          <Button fullWidth onPress={nextStep}>
+            Avançar
+          </Button>
+        )}
       </View>
       <View>
         <BodyText color={theme.palette.primary}>Publicidade</BodyText>
