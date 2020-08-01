@@ -12,7 +12,7 @@ const Image = styled.ImageBackground`
 
 const AreaView = styled.SafeAreaView`
   height: ${Dimensions.get('window').height}px;
-  padding-top: ${StatusBar.currentHeight}px;
+  /* padding-top: ${StatusBar.currentHeight}px; */
 `;
 
 const Background: React.FC = ({children}) => {

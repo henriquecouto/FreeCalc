@@ -1,11 +1,16 @@
 import React, {useState} from 'react';
-import {StyleSheet, Animated, Dimensions, Text} from 'react-native';
+import {StyleSheet, Animated, Dimensions} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
 import {TitleText, BodyText} from '../../components/Text';
 import {Container} from '../../components/Container';
 import {Card} from '../../components/Card';
 import Button from '../../components/Button';
-import Options from '../../components/Options';
+import Options from './Options';
+import Hour from '../Hour';
 
+const Stack = createStackNavigator();
 const {height} = Dimensions.get('window');
 
 const Home: React.FC = () => {
@@ -16,7 +21,7 @@ const Home: React.FC = () => {
   const open = () => {
     Animated.parallel([
       Animated.spring(cardHeight, {
-        toValue: height * 0.2,
+        toValue: height * 0.18,
         useNativeDriver: true,
         friction: 4,
         tension: 6,
@@ -43,15 +48,26 @@ const Home: React.FC = () => {
       </Container>
       <Animated.View
         style={[styles.cardView, {transform: [{translateY: cardHeight}]}]}>
-        <Card>
-          {opened ? (
-            <Options />
-          ) : (
+        {opened ? (
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Options"
+              headerMode="none"
+              screenOptions={{
+                cardStyle: {backgroundColor: '#0000'},
+                animationEnabled: false,
+              }}>
+              <Stack.Screen name="Options" component={Options} />
+              <Stack.Screen name="Hour" component={Hour} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        ) : (
+          <Card>
             <Animated.View>
               <Button onPress={open}>Quero calcular agora!</Button>
             </Animated.View>
-          )}
-        </Card>
+          </Card>
+        )}
       </Animated.View>
     </>
   );
