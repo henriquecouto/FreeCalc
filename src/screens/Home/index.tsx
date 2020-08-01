@@ -9,6 +9,7 @@ import {Card} from '../../components/Card';
 import Button from '../../components/Button';
 import Options from './Options';
 import Hour from '../Hour';
+import Project from '../Project';
 
 const Stack = createStackNavigator();
 const {height} = Dimensions.get('window');
@@ -59,6 +60,7 @@ const Home: React.FC = () => {
               }}>
               <Stack.Screen name="Options" component={Options} />
               <Stack.Screen name="Hour" component={Hour} />
+              <Stack.Screen name="Project" component={Project} />
             </Stack.Navigator>
           </NavigationContainer>
         ) : (

@@ -28,7 +28,7 @@ const Result: React.FC<Props> = ({value}) => {
   return (
     <>
       <SubTitleText color={theme.palette.primary}>
-        Aqui está o seu novo <Bold>valor por hora</Bold>!!
+        Aqui está o valor total do <Bold>projeto</Bold>!!
       </SubTitleText>
       <MaskedInput
         type="money"

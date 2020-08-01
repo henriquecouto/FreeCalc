@@ -52,7 +52,11 @@ const Options: React.FC = () => {
           </Button>
         </Animated.View>
         <Animated.View style={{transform: [{translateX: button2}]}}>
-          <Button style={styles.button}>O valor de um projeto</Button>
+          <Button
+            onPress={() => navigation.navigate('Project')}
+            style={styles.button}>
+            O valor de um projeto
+          </Button>
         </Animated.View>
       </View>
       <View>
