@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  ToastAndroid,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useTheme} from 'styled-components';
 import {MaskedInput} from '../../components/Input';
 import {Bold, SubTitleText, CaptionText} from '../../components/Text';
-import Clipboard from '@react-native-community/clipboard';
 
 type Props = {
   value: string;
@@ -17,13 +11,13 @@ type Props = {
 const Result: React.FC<Props> = ({value}) => {
   const theme = useTheme();
 
-  const copy = () => {
-    Clipboard.setString('R$' + value.replace('.', ','));
-    ToastAndroid.show(
-      'Copiado para área de transferência!',
-      ToastAndroid.BOTTOM,
-    );
-  };
+  // const copy = () => {
+  //   Clipboard.setString('R$' + value.replace('.', ','));
+  //   ToastAndroid.show(
+  //     'Copiado para área de transferência!',
+  //     ToastAndroid.BOTTOM,
+  //   );
+  // };
 
   return (
     <>
@@ -43,14 +37,14 @@ const Result: React.FC<Props> = ({value}) => {
         style={[styles.result, {color: theme.palette.primary}]}
         showSoftInputOnFocus={false}
         selectTextOnFocus={true}
+        selectionColor="#0000"
+        autoFocus
       />
-      <TouchableWithoutFeedback onPress={copy}>
-        <View style={styles.footer}>
-          <CaptionText color={theme.palette.primary}>
-            Toque aqui para copiar
-          </CaptionText>
-        </View>
-      </TouchableWithoutFeedback>
+      <View style={styles.footer}>
+        <CaptionText color={theme.palette.primary}>
+          Toque e segure no valor para copiar
+        </CaptionText>
+      </View>
     </>
   );
 };
