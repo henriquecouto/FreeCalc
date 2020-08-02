@@ -11,6 +11,9 @@ import Result from './Result';
 import {BannerAd, BannerAdSize} from '@react-native-firebase/admob';
 import {bannerId} from '../../config/ad';
 
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 const {height} = Dimensions.get('window');
 
 type PropsHour = {
@@ -43,7 +46,14 @@ const Questions: React.FC<PropsHour> = ({step}) => {
     case 3:
       return <DaysDuration value={daysDuration} setValue={setDaysDuration} />;
     case 4:
-      return <Result value={String(Math.round(projectValue).toFixed(2))} />;
+      return (
+        <Result
+          value={new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          }).format(projectValue)}
+        />
+      );
     default:
       return null;
   }

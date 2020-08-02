@@ -43,7 +43,14 @@ const Questions: React.FC<PropsQuestions> = ({step}) => {
     case 3:
       return <DaysWeek value={daysWeek} setValue={setDaysWeek} />;
     case 4:
-      return <Result value={String(Math.round(hourValue).toFixed(2))} />;
+      return (
+        <Result
+          value={new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          }).format(hourValue)}
+        />
+      );
     default:
       return null;
   }

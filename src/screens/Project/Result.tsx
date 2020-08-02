@@ -1,8 +1,19 @@
+import Clipboard from '@react-native-community/clipboard';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useTheme} from 'styled-components';
-import {MaskedInput} from '../../components/Input';
-import {Bold, SubTitleText, CaptionText} from '../../components/Text';
+import {
+  Bold,
+  SubTitleText,
+  CaptionText,
+  TitleText,
+} from '../../components/Text';
 
 type Props = {
   value: string;
@@ -11,35 +22,27 @@ type Props = {
 const Result: React.FC<Props> = ({value}) => {
   const theme = useTheme();
 
-  // const copy = () => {
-  //   Clipboard.setString('R$' + value.replace('.', ','));
-  //   ToastAndroid.show(
-  //     'Copiado para área de transferência!',
-  //     ToastAndroid.BOTTOM,
-  //   );
-  // };
+  const copy = () => {
+    Clipboard.setString(value);
+    ToastAndroid.show(
+      'Copiado para área de transferência!',
+      ToastAndroid.BOTTOM,
+    );
+  };
 
   return (
     <>
       <SubTitleText color={theme.palette.primary}>
         Aqui está o valor total do <Bold>projeto</Bold>!!
       </SubTitleText>
-      <MaskedInput
-        type="money"
-        options={{
-          precision: 2,
-          separator: ',',
-          delimiter: '.',
-          unit: 'R$',
-          suffixUnit: '',
-        }}
-        value={value}
-        style={[styles.result, {color: theme.palette.primary}]}
-        showSoftInputOnFocus={false}
-        selectTextOnFocus={true}
-        selectionColor="#0000"
-        autoFocus
-      />
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onLongPress={copy}
+        style={styles.resultContainer}>
+        <TitleText small numberOfLines={1} color={theme.palette.primary}>
+          {value}
+        </TitleText>
+      </TouchableOpacity>
       <View style={styles.footer}>
         <CaptionText color={theme.palette.primary}>
           Toque e segure no valor para copiar
@@ -54,9 +57,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  result: {
-    fontFamily: 'Roboto-Bold',
-    fontSize: 64,
+  resultContainer: {
+    alignItems: 'center',
+    marginTop: 20,
   },
 });
 
