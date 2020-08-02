@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useTheme} from 'styled-components';
 import {Card} from '../../components/Card';
-import {BodyText} from '../../components/Text';
 import {Dimensions, StyleSheet, View, BackHandler} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../../components/Button';
@@ -10,6 +8,8 @@ import MonthValue from './MonthValue';
 import HourDaily from './HourDaily';
 import DaysWeek from './DaysWeek';
 import Result from './Result';
+import {BannerAd, BannerAdSize} from '@react-native-firebase/admob';
+import {bannerId} from '../../config/ad';
 
 const {height} = Dimensions.get('window');
 
@@ -52,7 +52,6 @@ const Questions: React.FC<PropsQuestions> = ({step}) => {
 // Cálculo => monthValue / (daysWeek*4,4*hoursDay)
 
 const Hour: React.FC = () => {
-  const theme = useTheme();
   const navigation = useNavigation();
 
   const [step, setStep] = useState(1);
@@ -87,8 +86,8 @@ const Hour: React.FC = () => {
           </Button>
         )}
       </View>
-      <View>
-        <BodyText color={theme.palette.primary}>Publicidade</BodyText>
+      <View style={styles.ad}>
+        <BannerAd unitId={bannerId} size={BannerAdSize.SMART_BANNER} />
       </View>
     </Card>
   );
@@ -97,10 +96,13 @@ const Hour: React.FC = () => {
 const styles = StyleSheet.create({
   root: {
     height: '100%',
-    paddingBottom: height * 0.2,
+    paddingBottom: height * 0.185,
     justifyContent: 'space-between',
   },
   content: {justifyContent: 'space-between', height: '90%'},
+  ad: {
+    marginLeft: -25,
+  },
 });
 
 export default Hour;

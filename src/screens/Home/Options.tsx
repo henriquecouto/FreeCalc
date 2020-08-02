@@ -4,7 +4,9 @@ import {Animated, Dimensions, StyleSheet, View} from 'react-native';
 import {useTheme} from 'styled-components';
 import Button from '../../components/Button';
 import {Card} from '../../components/Card';
-import {SubTitleText, BodyText} from '../../components/Text';
+import {SubTitleText} from '../../components/Text';
+import {BannerAd, BannerAdSize} from '@react-native-firebase/admob';
+import {bannerId} from '../../config/ad';
 
 const {height} = Dimensions.get('window');
 
@@ -59,8 +61,8 @@ const Options: React.FC = () => {
           </Button>
         </Animated.View>
       </View>
-      <View>
-        <BodyText color={theme.palette.primary}>Publicidade</BodyText>
+      <View style={styles.ad}>
+        <BannerAd unitId={bannerId} size={BannerAdSize.SMART_BANNER} />
       </View>
     </Card>
   );
@@ -69,7 +71,7 @@ const Options: React.FC = () => {
 const styles = StyleSheet.create({
   root: {
     height: '100%',
-    paddingBottom: height * 0.2,
+    paddingBottom: height * 0.185,
     justifyContent: 'space-between',
   },
   subtitle: {
@@ -80,6 +82,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 15,
+  },
+  ad: {
+    marginLeft: -25,
   },
 });
 
