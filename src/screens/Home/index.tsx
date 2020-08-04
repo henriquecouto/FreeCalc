@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Animated, Dimensions, StatusBar} from 'react-native';
+import {Animated, Dimensions, StatusBar, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled, {useTheme} from 'styled-components/native';
 import {transparentize} from 'polished';
@@ -64,25 +64,16 @@ const Home: React.FC = () => {
         <SafeAreaView>
           <Container>
             <Title>FreeCalc</Title>
-            <Body style={{textAlign: 'center'}}>
+            <Body style={styles.body}>
               Não tenha mais dúvidas na hora de decidir o preço de um projeto
             </Body>
           </Container>
           <Animated.View
             style={[
-              {
-                width: '100%',
-                height: '100%',
-              },
+              styles.animatedView,
               {transform: [{translateY: cardHeight}]},
             ]}>
-            <Card
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                width: '100%',
-                height: '100%',
-              }}>
+            <Card>
               {!cardOpened && (
                 <Button onPress={open}>Quero calcular agora!</Button>
               )}
@@ -93,5 +84,15 @@ const Home: React.FC = () => {
     </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  body: {
+    textAlign: 'center',
+  },
+  animatedView: {
+    width: '100%',
+    height: '100%',
+  },
+});
 
 export default Home;
