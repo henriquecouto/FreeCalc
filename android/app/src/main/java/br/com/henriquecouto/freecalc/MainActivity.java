@@ -1,4 +1,4 @@
-package com.freecalc;
+package br.com.henriquecouto.freecalc;
 
 import com.facebook.react.ReactActivity;
 
