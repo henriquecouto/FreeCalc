@@ -9,6 +9,7 @@ export const Title = styled.Text<TitleProps>`
   font-family: 'BalooTammudu2-Bold';
   font-size: ${(props) => (props.small ? '42px' : '64px')};
   color: ${(props) => props.color || props.theme.palette.white};
+  text-align: left;
 `;
 
 type DefaultProps = {

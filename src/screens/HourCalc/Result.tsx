@@ -30,7 +30,9 @@ const Result: React.FC<Props> = ({value}) => {
         activeOpacity={0.6}
         onLongPress={copy}
         style={styles.resultContainer}>
-        <Title color={theme.palette.primary}>{value}</Title>
+        <Title small numberOfLines={1} color={theme.palette.primary}>
+          {value}
+        </Title>
       </TouchableOpacity>
       <View style={styles.footer}>
         <Caption color={theme.palette.primary}>
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   },
   resultContainer: {
     alignItems: 'center',
+    textAlign: 'justify',
   },
 });
 
