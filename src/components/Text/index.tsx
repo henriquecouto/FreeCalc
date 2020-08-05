@@ -10,6 +10,7 @@ export const Title = styled.Text<TitleProps>`
   font-size: ${(props) => (props.small ? '42px' : '64px')};
   color: ${(props) => props.color || props.theme.palette.white};
   text-align: left;
+  line-height: 110px;
 `;
 
 type DefaultProps = {

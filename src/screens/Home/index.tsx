@@ -77,7 +77,9 @@ const Home: React.FC = () => {
         ]}>
         <SafeAreaView>
           <Container>
-            <Title>FreeCalc</Title>
+            <Animated.View style={{transform: [{scale: titleSize}]}}>
+              <Title>FreeCalc</Title>
+            </Animated.View>
             <Body style={styles.body}>
               Não tenha mais dúvidas na hora de decidir o preço de um projeto
             </Body>
