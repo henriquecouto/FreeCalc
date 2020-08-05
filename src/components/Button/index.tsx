@@ -6,22 +6,24 @@ import {Body} from '../Text';
 const {width} = Dimensions.get('window');
 
 const Touchable = styled.TouchableOpacity<Props>`
-  background-color: ${(props) => props.theme.palette.secondary};
+  background-color: ${(props) =>
+    props.transparent ? '#0000' : props.theme.palette.secondary};
   border-radius: ${(props) => (props.fullWidth ? '0px' : '25px')};
   padding: 15px;
   width: ${(props) => (props.fullWidth ? `${width}px` : '100%')};
-  margin-left: ${(props) => (props.fullWidth ? '-25px' : '0px')};
   align-items: center;
 `;
 
 interface Props extends TouchableOpacityProps {
   fullWidth?: boolean;
+  transparent?: boolean;
+  color?: string;
 }
 
-const Button: React.ElementType<Props> = ({children, ...props}) => {
+const Button: React.ElementType<Props> = ({children, color, ...props}) => {
   return (
     <Touchable activeOpacity={0.8} {...props}>
-      <Body>{children}</Body>
+      <Body color={color}>{children}</Body>
     </Touchable>
   );
 };
