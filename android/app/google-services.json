@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "334602588842",
+    "firebase_url": "https://free-calc.firebaseio.com",
+    "project_id": "free-calc",
+    "storage_bucket": "free-calc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334602588842:android:b7390f8d695d75919af6d3",
+        "android_client_info": {
+          "package_name": "br.com.henriquecouto.freecalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334602588842-oe9sfibmjfv6hrqd4k1i3a09lf2lv2pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAld9f96BO6GJLd2wD5WLxM6AEr_UGk0TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334602588842-oe9sfibmjfv6hrqd4k1i3a09lf2lv2pa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -39,7 +39,7 @@ const Home: React.FC = () => {
   const openCard = () => {
     Animated.parallel([
       Animated.spring(cardHeight, {
-        toValue: -screenHeight * 0.6,
+        toValue: -screenHeight * 0.55,
         useNativeDriver: true,
         friction: 4,
         tension: 6,

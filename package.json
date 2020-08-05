@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-native-community/clipboard": "^1.2.3",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-firebase/admob": "^7.4.1",
+    "@react-native-firebase/app": "^8.3.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "polished": "^3.6.5",
